@@ -7,6 +7,15 @@ from fnn_itm import FNNITMFramework, InfluencerProfile
 import json, traceback
 
 app = Flask(__name__)
+@app.route('/')
+def home():
+    # Looks for 'index.html' inside a folder named 'templates'
+    return render_template('index.html') 
+
+if __name__ == '__main__':
+    # Render provides a $PORT environment variable you must bind to
+    port = int(os.environ.get("PORT", 7860))
+    app.run(host='0.0.0.0', port=port)
 framework = FNNITMFramework()
 
 SAMPLE_PROFILES = {
