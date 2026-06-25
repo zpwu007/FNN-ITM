@@ -77,7 +77,6 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    overflow: hidden;
     display: flex; flex-direction: column;
   }
   .card-header {
@@ -336,7 +335,8 @@
     </div>
 
     <div class="card" id="scoreCard" style="display:none">
-      <div class="score-hero">
+      <div style="height:260px; overflow-y:auto; overflow-x:hidden;">
+        <div class="score-hero">
         <div class="score-circle">
           <svg viewBox="0 0 128 128">
             <circle cx="64" cy="64" r="60" stroke="var(--border2)" stroke-dasharray="377" stroke-dashoffset="0"/>
@@ -348,16 +348,17 @@
         <span class="trust-badge" id="trustBadge">—</span>
         <span class="conf-line"  id="confLine">—</span>
       </div>
+      </div><!-- end scrollable wrapper -->
     </div>
 
     <div class="card" id="dimCard" style="display:none">
       <div class="card-header"><h3>Trust Dimensions</h3></div>
-      <div class="card-body" style="max-height:200px"><div class="dim-grid" id="dimGrid"></div></div>
+      <div class="card-body" style="height:200px; overflow-y:scroll;"><div class="dim-grid" id="dimGrid"></div></div>
     </div>
 
     <div class="card" id="fuzzyCard" style="display:none">
       <div class="card-header"><h3>Fuzzy Membership Degrees</h3></div>
-      <div class="card-body" style="max-height:280px"><div class="fuzzy-grid" id="fuzzyGrid"></div></div>
+      <div class="card-body" style="height:260px; overflow-y:scroll;"><div class="fuzzy-grid" id="fuzzyGrid"></div></div>
     </div>
 
     <div class="card" id="rulesCard" style="display:none">
@@ -365,7 +366,7 @@
         <h3>Active Fuzzy Rules</h3>
         <span style="margin-left:auto;font-size:0.71rem;color:var(--muted);">Top 10 by firing strength</span>
       </div>
-      <div class="card-body" style="max-height:280px"><div class="rule-list" id="ruleList"></div></div>
+      <div class="card-body" style="height:260px; overflow-y:scroll;"><div class="rule-list" id="ruleList"></div></div>
     </div>
 
   </section>
