@@ -4,19 +4,20 @@ Flask backend for FNN-ITM web application
 
 from flask import Flask, request, jsonify, render_template
 from fnn_itm import FNNITMFramework, InfluencerProfile
-import os, json, traceback
+import json, traceback
 
 app = Flask(__name__)
-#@app.route('/')
-#def home():
-#    # Looks for 'index.html' inside a folder named 'templates'
-#    return render_template('index.html') 
-
-if __name__ == '__main__':
-    # Render provides a $PORT environment variable you must bind to
-    port = int(os.environ.get("PORT", 7860))
-    app.run(host='0.0.0.0', port=port)
 framework = FNNITMFramework()
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+if __name__ == "__main__":
+    import os
+    # Bind to 0.0.0.0 so IP:port traffic is picked up across your local network
+    port = int(os.environ.get("PORT", 7860))
+    app.run(host="0.0.0.0", port=port, debug=True)
+
 
 SAMPLE_PROFILES = {
     "high_trust": {
