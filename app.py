@@ -4,7 +4,7 @@ Flask backend for FNN-ITM web application
 
 from flask import Flask, request, jsonify, render_template
 from fnn_itm import FNNITMFramework, InfluencerProfile
-import json, traceback
+import os, json, traceback
 
 app = Flask(__name__)
 #@app.route('/')
